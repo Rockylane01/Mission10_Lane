@@ -8,4 +8,8 @@ export type Bowler = {
     bowlerState: string;
     bowlerZip: string;
     bowlerPhoneNumber: string;
+    team?: {  // Nested: Optional team object
+        teamId: number;
+        teamName: string;
+    };
 }

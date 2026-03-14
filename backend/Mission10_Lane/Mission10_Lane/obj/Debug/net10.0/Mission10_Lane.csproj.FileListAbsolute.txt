@@ -147,3 +147,4 @@ C:\Users\rocky\source\repos\Mission10_Lane\backend\Mission10_Lane\Mission10_Lane
 C:\Users\rocky\source\repos\Mission10_Lane\backend\Mission10_Lane\Mission10_Lane\obj\Debug\net10.0\Mission10_Lane.genruntimeconfig.cache
 C:\Users\rocky\source\repos\Mission10_Lane\backend\Mission10_Lane\Mission10_Lane\obj\Debug\net10.0\ref\Mission10_Lane.dll
 C:\Users\rocky\source\repos\Mission10_Lane\backend\Mission10_Lane\Mission10_Lane\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\rocky\source\repos\Mission10_Lane\backend\Mission10_Lane\Mission10_Lane\obj\Debug\net10.0\Mission10_Lane.sourcelink.json

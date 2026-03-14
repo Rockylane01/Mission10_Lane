@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission10_Lane")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c53c20e2e7fd1a2ca1309b5f251d96629455bf5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission10_Lane")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission10_Lane")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

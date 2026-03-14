@@ -1,27 +1,29 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {type Bowler} from "./types/bowler";
 
 function BowlerList() {
     const [bowlers, setBowlers] = useState<Bowler[]>([]);
 
-    const fetchBowlers = async () => {
-        try {
-            const response = await fetch("https://localhost:5000/api/bowler");
+    useEffect(() => {
+        const fetchBowlers = async () => {
+            try {
+                const response = await fetch("https://localhost:5000/api/bowler");
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data: Bowler[] = await response.json();
+                setBowlers(data);
+            } 
+            catch (error) {
+                console.error("Error fetching bowlers:", error);
             }
-
-            const data: Bowler[] = await response.json();
-            setBowlers(data);
-        } 
-        catch (error) {
-            console.error("Error fetching bowlers:", error);
-        }
-    };
-
-    fetchBowlers();
+        };
+        
+        fetchBowlers();
+    }, []); // Empty dependency array means this effect runs once on mount
 
   return (
     <>
@@ -33,6 +35,13 @@ function BowlerList() {
               <th>Bowler ID</th>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Middle Initial</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip</th>
+              <th>Phone Number</th>
+              <th>Team Name</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +50,14 @@ function BowlerList() {
                 <tr key={bowler.bowlerId}>
                   <td>{bowler.bowlerId}</td>
                   <td>{bowler.bowlerFirstName}</td>
+                  <td>{bowler.bowlerMiddleInit}</td>
                   <td>{bowler.bowlerLastName}</td>
+                  <td>{bowler.bowlerAddress}</td>
+                  <td>{bowler.bowlerCity}</td>
+                  <td>{bowler.bowlerState}</td>
+                  <td>{bowler.bowlerZip}</td>
+                  <td>{bowler.bowlerPhoneNumber}</td>
+                  <td>{bowler.team?.teamName || "N/A"}</td>
                 </tr>
               ))
             }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mission10_Lane.Models;
 
@@ -18,7 +19,28 @@ namespace Mission10_Lane.Controllers
         [HttpGet(Name = "GetBowlingLeague")]
         public IEnumerable<Bowler> Get()
         {
-            var bowlers = _context.Bowlers.ToList();
+            // return bowler data from the database for bowlers on Marlins or Sharks teams
+            var bowlers = _context.Bowlers
+                .Where(b => b.Team != null && (b.Team.TeamName == "Marlins" || b.Team.TeamName == "Sharks"))
+                .Select(b => new Bowler
+                {
+                    BowlerId = b.BowlerId,
+                    BowlerLastName = b.BowlerLastName,
+                    BowlerFirstName = b.BowlerFirstName,
+                    BowlerMiddleInit = b.BowlerMiddleInit,
+                    BowlerAddress = b.BowlerAddress,
+                    BowlerCity = b.BowlerCity,
+                    BowlerState = b.BowlerState,
+                    BowlerZip = b.BowlerZip,
+                    BowlerPhoneNumber = b.BowlerPhoneNumber,
+                    TeamId = b.TeamId,
+                    Team = new Team
+                    {
+                        TeamId = b.Team.TeamId,
+                        TeamName = b.Team.TeamName
+                    }
+                })
+                .ToList();
 
             return bowlers;
         }
