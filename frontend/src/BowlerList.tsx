@@ -50,8 +50,8 @@ function BowlerList() {
                 <tr key={bowler.bowlerId}>
                   <td>{bowler.bowlerId}</td>
                   <td>{bowler.bowlerFirstName}</td>
-                  <td>{bowler.bowlerMiddleInit}</td>
                   <td>{bowler.bowlerLastName}</td>
+                  <td>{bowler.bowlerMiddleInit}</td>
                   <td>{bowler.bowlerAddress}</td>
                   <td>{bowler.bowlerCity}</td>
                   <td>{bowler.bowlerState}</td>
